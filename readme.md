@@ -12,6 +12,12 @@
 
 ###### Run it locally??
 
+```
+$ yarn
+$ yarn run dev
+```
+
+<!--
 <div style="color: #ddd; background: #212e2d; padding: 5px 20px; border-radius: 2px">
 
 <span>
@@ -23,8 +29,10 @@
 
 </div>
 
-<br>
+<br> -->
 
- <small style="color: #577371">
- Live version comming soon...
- </small>
+ <!-- <small style="color: #577371"> -->
+
+###### Live version comming soon...
+
+ <!-- </small> -->
