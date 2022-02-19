@@ -26,12 +26,16 @@ export const ColumnContainer = styled.div`
 export const ColumnTitle = styled.div`
   padding: 6px 16px 12px;
   font-weight: bold;
+  font-size: 20px;
 `;
 
 // styling for card container component
 export const CardContainer = styled.div`
   background-color: #fff;
   cursor: pointer;
+  font-weight: none;
+  color: #808080;
+  text-transform: lowercase;
   margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
   max-width: 300px;
