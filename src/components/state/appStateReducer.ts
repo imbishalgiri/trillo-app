@@ -1,8 +1,8 @@
 import { nanoid } from "nanoid";
 
 import { Action } from "./actions";
-import { ADD_LIST, ADD_TASK } from "./types";
-import { findItemIndexById } from "../utils/arrayUtils";
+import { ADD_LIST, ADD_TASK, MOVE_LIST } from "./types";
+import { findItemIndexById, moveItem } from "../utils/arrayUtils";
 // ---------------- Type Declarations
 export type Task = {
   id: string;
@@ -25,16 +25,14 @@ export const appStateReducer = (
   action: Action
 ): AppState | void => {
   switch (action.type) {
-    //--------------- case
+    //--------------- case: add list
     case ADD_LIST:
-      console.log("i am triggered ADD_LIST");
       draft.lists.push({ id: nanoid(), text: action.payload, tasks: [] });
       return draft;
       break;
 
-    // ------------ case
+    // ------------ case: add task
     case ADD_TASK:
-      console.log(" I am triggered ADD_TASK");
       const { text, listId } = action.payload;
       const targetListIndex = findItemIndexById(draft.lists, listId);
       draft.lists[targetListIndex].tasks.push({
@@ -43,7 +41,15 @@ export const appStateReducer = (
       });
       break;
 
-    // ----------- case
+    // ----------- case: move list
+    case MOVE_LIST:
+      const { draggedId, hoverId } = action.payload;
+      const dragIndex = findItemIndexById(draft.lists, draggedId);
+      const hoverIndex = findItemIndexById(draft.lists, hoverId);
+      draft.lists = moveItem(draft.lists, dragIndex, hoverIndex);
+      break;
+
+    // ----------- case: default
     default:
       break;
   }

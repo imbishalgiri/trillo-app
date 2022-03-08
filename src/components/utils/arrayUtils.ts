@@ -1,6 +1,5 @@
-type Item = {
-  id: string;
-};
+import { List } from "./../state/appStateReducer";
+type Item = List;
 
 // find index of the item in the array and return it
 export const findItemIndexById = (items: Item[], id: string) => {
