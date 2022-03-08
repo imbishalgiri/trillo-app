@@ -1,8 +1,9 @@
 import { nanoid } from "nanoid";
 
 import { Action } from "./actions";
-import { ADD_LIST, ADD_TASK, MOVE_LIST } from "./types";
+import { ADD_LIST, ADD_TASK, MOVE_LIST, SET_DRAGGED_ITEM } from "./types";
 import { findItemIndexById, moveItem } from "../utils/arrayUtils";
+import { DragItem } from "../DragItem";
 // ---------------- Type Declarations
 export type Task = {
   id: string;
@@ -17,6 +18,7 @@ export type List = {
 
 export type AppState = {
   lists: List[];
+  draggedItem: DragItem | null;
 };
 
 // ------------------------ Main Reducer
@@ -47,6 +49,11 @@ export const appStateReducer = (
       const dragIndex = findItemIndexById(draft.lists, draggedId);
       const hoverIndex = findItemIndexById(draft.lists, hoverId);
       draft.lists = moveItem(draft.lists, dragIndex, hoverIndex);
+      break;
+
+    // --------- case: set dragged item
+    case SET_DRAGGED_ITEM:
+      draft.draggedItem = action.payload;
       break;
 
     // ----------- case: default

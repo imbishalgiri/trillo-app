@@ -1,9 +1,11 @@
-import { FC, ReactChild, ReactChildren } from "react";
+import { useRef } from "react";
 import { ColumnContainer, ColumnTitle } from "../styles";
 import { AddNewItem } from "./AddNewItem";
 import { useAppState } from "./state/AppStateContext";
 import { Card } from "./Card";
 import { addTask } from "./state/actions";
+
+import { useItemDrag } from "./utils/useItemDrag";
 
 type columnProps = {
   text: string;
@@ -11,12 +13,14 @@ type columnProps = {
 };
 
 export const Column = ({ text, id }: columnProps) => {
-  const { getTasksByListId, dispatch } = useAppState();
+  const ref = useRef<HTMLDivElement>(null);
 
+  const { draggedItem, getTasksByListId, dispatch } = useAppState();
   const tasks = getTasksByListId(id);
-
+  const { drag } = useItemDrag({ type: "COLUMN", id, text });
+  drag(ref);
   return (
-    <ColumnContainer>
+    <ColumnContainer ref={ref}>
       <ColumnTitle>{text}</ColumnTitle>
       {tasks.map((task) => (
         <Card text={task.text} key={task.id} id={task.id} />
