@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import { ColumnContainer, ColumnTitle } from "../styles";
-import { AddNewItem } from "./AddNewItem";
-import { useAppState } from "./state/AppStateContext";
-import { Card } from "./Card";
-import { addTask } from "./state/actions";
+import { ColumnContainer, ColumnTitle } from "../../styles";
+import { AddNewItem } from "../addNewItem/AddNewItem";
+import { useAppState } from "../../state/AppStateContext";
+import { Card } from "../card/Card";
+import { addTask } from "../../state/actions";
 
-import { useItemDrag } from "./utils/useItemDrag";
+import { useItemDrag } from "../utils/useItemDrag";
 
 type columnProps = {
   text: string;
@@ -28,8 +28,7 @@ export const Column = ({ text, id }: columnProps) => {
       <AddNewItem
         toggleButtonText="+ Add another list"
         onAdd={(text) => {
-          console.log("text, id", text, id);
-          dispatch(addTask(text, id));
+          text.trim() && dispatch(addTask(text, id));
         }}
         dark={true}
       />

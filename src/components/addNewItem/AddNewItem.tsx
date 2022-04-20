@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { NewItemForm } from "./NewItemForm";
-import { AddItemButton } from "../styles";
+import { AddItemButton } from "../../styles";
 
 // interface declaration for main component aka AddNewItem
 interface AddNewItemProps {

@@ -1,7 +1,7 @@
 import { useDrag } from "react-dnd";
-import { useAppState } from "../state/AppStateContext";
-import { DragItem } from "../DragItem";
-import { setDraggedItem } from "../state/actions";
+import { useAppState } from "../../state/AppStateContext";
+import { DragItem } from "../column/DragItem";
+import { setDraggedItem } from "../../state/actions";
 
 export const useItemDrag = (item: DragItem) => {
   const { dispatch } = useAppState();

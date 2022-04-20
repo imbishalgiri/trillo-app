@@ -2,8 +2,8 @@ import { nanoid } from "nanoid";
 
 import { Action } from "./actions";
 import { ADD_LIST, ADD_TASK, MOVE_LIST, SET_DRAGGED_ITEM } from "./types";
-import { findItemIndexById, moveItem } from "../utils/arrayUtils";
-import { DragItem } from "../DragItem";
+import { findItemIndexById, moveItem } from "../components/utils/arrayUtils";
+import { DragItem } from "../components/column/DragItem";
 // ---------------- Type Declarations
 export type Task = {
   id: string;

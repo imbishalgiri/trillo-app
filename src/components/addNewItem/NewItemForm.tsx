@@ -1,7 +1,11 @@
 import { useState, KeyboardEvent } from "react";
 
-import { useFocus } from "./utils/useFocus";
-import { NewItemFormContainer, NewItemInput, NewItemButton } from "../styles";
+import { useFocus } from "../utils/useFocus";
+import {
+  NewItemFormContainer,
+  NewItemInput,
+  NewItemButton,
+} from "../../styles";
 
 interface NewItemFormProps {
   onAdd(text: string): void;

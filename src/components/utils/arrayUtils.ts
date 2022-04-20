@@ -1,4 +1,4 @@
-import { List } from "./../state/appStateReducer";
+import { List } from "../../state/appStateReducer";
 type Item = List;
 
 // find index of the item in the array and return it

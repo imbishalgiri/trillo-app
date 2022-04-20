@@ -3,7 +3,7 @@ import { useImmerReducer } from "use-immer";
 
 import { appStateReducer, AppState, List, Task } from "./appStateReducer";
 import { Action } from "./actions";
-import { DragItem } from "../DragItem";
+import { DragItem } from "../components/column/DragItem";
 
 type AppStateContextProps = {
   draggedItem: DragItem | null;
