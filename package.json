@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "ad-bs-converter": "^0.5.0",
@@ -22,6 +24,7 @@
     "@types/react-dom": "^17.0.10",
     "@types/styled-components": "^5.1.21",
     "@vitejs/plugin-react": "^1.0.7",
+    "gh-pages": "^4.0.0",
     "typescript": "^4.4.4",
     "vite": "^2.7.2"
   }
