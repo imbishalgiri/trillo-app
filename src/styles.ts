@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+interface DragPreviewContainerProps {
+  isHidden?: boolean;
+  isPreview?: boolean;
+}
+
 // styling main app / layout styles
 export const AppContainer = styled.div`
   align-items: flex-start;
@@ -11,36 +16,11 @@ export const AppContainer = styled.div`
   width: 100%;
 `;
 
-// styling a single column
-export const ColumnContainer = styled.div`
-  background-color: #ebecf0;
-  width: 300px;
-  min-height: 40px;
-  margin-right: 20px;
-  border-radius: 3px;
-  padding: 8px 8px;
-  flex-grow: 0;
-`;
-
 // styling for title of a single column
 export const ColumnTitle = styled.div`
   padding: 6px 16px 12px;
   font-weight: bold;
   font-size: 20px;
-`;
-
-// styling for card container component
-export const CardContainer = styled.div`
-  background-color: #fff;
-  cursor: pointer;
-  font-weight: none;
-  color: #808080;
-  text-transform: lowercase;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem 1rem;
-  max-width: 300px;
-  border-radius: 3px;
-  box-shadow: #091e4240 0px 1px 0px 0px;
 `;
 
 // + ADD NEW ITEM button
@@ -99,4 +79,46 @@ export const NewItemInput = styled.input`
   margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
   width: 100%;
+`;
+
+export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
+  opacity: ${(props) => (props.isHidden ? 0.5 : 1)};
+  transform: ${(props) => (props.isPreview ? "rotate(5deg)" : undefined)};
+`;
+
+// styling a single column
+export const ColumnContainer = styled(DragPreviewContainer)`
+  background-color: #ebecf0;
+  width: 300px;
+  min-height: 40px;
+  margin-right: 20px;
+  border-radius: 3px;
+  padding: 8px 8px;
+  flex-grow: 0;
+  cursor: move;
+`;
+
+// styling for card container component
+export const CardContainer = styled(DragPreviewContainer)`
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: none;
+  color: #808080;
+  text-transform: lowercase;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  max-width: 300px;
+  border-radius: 3px;
+  box-shadow: #091e4240 0px 1px 0px 0px;
+`;
+
+// custom drag layer container
+export const CustomDragLayerContainer = styled.div`
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 `;

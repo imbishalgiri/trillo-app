@@ -12,8 +12,6 @@ export const moveItem = (array: Item[], from: number, to: number) => {
   return insertItemAtIndex(removeItemsAtIndex(array, from), item, to);
 };
 
-// -------------- PRIVATE FUNCTIONS
-
 // ------------ removing items at index
 export function removeItemsAtIndex(array: Item[], index: number) {
   return [...array.slice(0, index), ...array.slice(index + 1)];
