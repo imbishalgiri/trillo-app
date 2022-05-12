@@ -1,4 +1,5 @@
 {
+  "homepage": "https://imbishalgiri.github.io/trillo-app/",
   "name": "trillo-app",
   "version": "0.0.0",
   "scripts": {
@@ -6,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "ad-bs-converter": "^0.5.0",
